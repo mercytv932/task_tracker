@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+
+<head>
+  <title>Study Tracker</title>
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    
+.main-header {
+  width:100%;
+  background-color: lightgray;
+  backdrop-filter: blur(10px);
+  padding: 10px 25px;
+  
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  margin: 0;
+  border-radius: 0;
+  box-shadow: none;
+
+  position: sticky;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  margin-right: 0;
+}
+
+
+.logo{
+  /* font-size: 22px;  */
+  /* font-weight: 700; */
+  color: #000000;
+  width: 90px;
+  height: 90px;
+  object-fit: contain;
+  border-radius: 30px;
+  margin-left: 10px;
+}
+
+.nav-links {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  justify-content: space-around;
+  width: 50%;
+  max-width: 1200x;
+  margin: 0 auto;
+  gap: 40px;
+}
+
+
+.nav-links a{
+  text-decoration: none;
+  font-size: 24px;
+  color: #374654;
+  font-weight: 600;
+  padding: 6px 10px;
+  border-radius: 6px;
+  transition: 0.3s ease;
+  cursor: pointer;
+  color: #0F4C81;
+
+}
+
+.nav-links a:hover{
+  background: rgba(55, 70, 84, 0.15);
+  transform: translateY(-2px);
+  text-decoration: underline;
+  color: #741B47;
+}
+
+
+@media (max-width: 480px) {
+  .main-header {
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+  }
+
+  .nav-links{
+    gap: 12px;
+  }
+}
+
+.header-image{
+  width: 135px;
+  height: 135px;
+  object-fit: contain;
+  border-radius: 30px;
+  margin-right: 10px;
+  margin-left: 20px;
+}
+
+
+/*Footer*/
+.footer{
+  width: 100%;
+  padding: 20px 0;
+  background: rgba(0,0,0,0.5);
+  /* margin-top: 40px; */
+  color: white;
+  text-align: center;
+  backdrop-filter: blur(6px);
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+
+  position: fixed;
+  bottom: 0;
+  left: 0;
+
+  margin: 0;
+}
+
+.footer-links{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.footer-links a{
+  color: white;
+  text-decoration: none;
+  font-size: 20px;
+  transition: opacity 0.2s;
+}
+
+.footer-links a:hover{
+  opacity: 0.7;
+  text-decoration: underline;
+  color: #7ea2c1;
+}
+
+.footer-tagline {
+  font-size: 14px;
+  opacity: 0.8;
+}
+
+
+/*Hamburger styles*/
+
+.hamburger{
+  display: none;
+  /* position: absolute; */
+  /* right: 25px; */
+  /* top: 25px; */
+  font-size: 32px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-right: 20px;
+  /* user-select: none; */
+}
+
+/* @media (max-width: 700px) {
+
+  .hamburger{
+    display: block;
+  }
+
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 90px;
+    right: 0;
+    width: 100%;
+    background: #c6d6ee;
+    flex-direction: column;
+    margin-top: 10px;
+    padding: 10px 0;
+    gap: 20px;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: 0.3s ease;
+  }
+
+  .nav-links.open {
+    display: flex;
+    max-height: 300px;
+    opacity: 1;
+  }
+
+} */
+
+  </style>
+
+</head>
+<body>
+<header class="main-header">
+
+ <img src="Screenshot (358)-modified.png" class="header-image">
+
+ <div class="hamburger" id="hamburger">☰</div> 
+
+<nav div class="nav-links" id="navLinks">
+  <a href="index.html">Home</a>
+  <a href="index.html">About</a>
+  <a href = "index.html">Studies</a>
+
+</nav>
+
+</header>
+
+<div id="container">
+
+<h1>Track Your Work</h1>
+  <div class="input-area">
+   <input type="text" class="subject" placeholder="Subject">
+   <input type="text" class="assignment" placeholder="Assignment">
+   <input type="date" class="due-date" placeholder="Due Date">
+  <button id="addTask">Add Task</button>
+</div>
+
+
+<div class="controls">
+ <button id="clearAll">Clear All</button>
+ <!-- <button id="filter">Filter</button> -->
+
+ <select  id="filterSelect">
+  <option value="all">All Tasks</option>
+  <option value="upcoming">Upcoming</option>
+  <option value="overdue">Overdue</option>
+ </select>
+
+</div>
+
+
+ <div id="task-stats">0 completed / 0 total</div>
+
+ <ul class="task-list">
+
+ </ul>
+
+
+
+  <div>
+     <div class="wave"></div>
+     <div class="wave"></div>
+     <div class="wave"></div>
+  </div>
+
+
+ <audio id="doneSound" src="done.mp3" preload="auto"></audio>
+
+ </div>
+
+<footer class="footer">
+
+<div class="footer-links">
+<a href="index.html">Home</a>
+<a href ="mailto: Mercytv932@gmail.com">Contact Us</a>
+<!-- <a href ="#">About</a> -->
+<a href="#">Study Tips</a>
+<a href="#">Privacy Policy</a>
+<!-- <a href="#">Terms of Service</a> -->
+</div>
+<p class="footer-tagline"> StudyTracker • Stay organized.  Stay consistent.</p>
+
+</footer>
+
+ <script src="script.js"> </script>
+</body>
+</html>
+
+
